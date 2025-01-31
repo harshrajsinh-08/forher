@@ -18,4 +18,13 @@
       </div>
     </form>
   </body>
+  <script>
+    const dateInput = document.querySelector("input[type='date']");
+    const form = document.querySelector("form");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      localStorage.setItem("selectedDate", dateInput.value);
+      window.location.href = "food.html";
+    });
+  </script>
 </html>

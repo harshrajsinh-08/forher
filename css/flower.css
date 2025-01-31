@@ -1,3 +1,4 @@
+
 *,
 *::after,
 *::before{
@@ -16,22 +17,22 @@ body{
     background-color: #FFF5E4;
     min-height: 100vh;
     display: flex;
-    flex-direction: column; /* Change the direction to column */
+    flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Align items to the start of the container */
+    justify-content: flex-start; 
     overflow: hidden;
 	color: #FF9494;
 	font-family: courier;
 }
 
 #thankyou {
-    width: 100%; /* Ensure it spans the full width */
-    text-align: center; /* Keep the text centered */
-    margin-top: 20px; /* Add some space at the top */
-    z-index: 1000; /* Ensure it's above other elements if needed */
-    position: relative; /* Adjust based on layout needs */
-	margin-bottom: 400px;
-	font-size: 50px;
+    width: 100%;
+    text-align: center;
+    margin-top: 2px;
+    z-index: 1000;
+    position: relative;
+    margin-bottom: 350px;
+    font-size: 50px;
 }
 
 .flower{
@@ -362,4 +363,4 @@ body{
         transform-origin: center;
         transform:translate(-36vmin,1.1vmin) rotateY(-80deg) rotateX(35deg);
     }
-}
+} 

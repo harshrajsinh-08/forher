@@ -47,4 +47,16 @@
       Continue Hihihhh...
     </button>
   </body>
+  <script>
+    const foodInputs = document.querySelectorAll("input[name='food']");
+    const button = document.querySelector(".button");
+    button.addEventListener("click", () => {
+      const selectedFood = Array.from(foodInputs)
+        .filter((input) => input.checked)
+        .map((input) => input.value)
+        .join(", ");
+      localStorage.setItem("selectedFood", selectedFood || "None");
+      window.location.href = "dessert.html";
+    });
+  </script>
 </html>
