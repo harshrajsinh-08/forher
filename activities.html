@@ -10,58 +10,35 @@
     <div id="activityquestion"><b>What are we doing after?</b></div>
     <div class="activities-selection">
       <div class="activity-item">
-        <img src="activities/movie.jpg" alt="movie" />
-        <label
-          ><input
-            type="checkbox"
-            name="activities"
-            value="movie"
-          />Movie</label
-        >
+        <img src="activities/movie.jpg" alt="movie" onclick="toggleCheckbox(this)" />
+        <label><input type="checkbox" name="activities" value="movie" />Movie</label>
       </div>
       <div class="activity-item">
-        <img src="activities/arcade.jpeg" alt="arcade" />
-        <label
-          ><input
-            type="checkbox"
-            name="activities"
-            value="arcade"
-          />arcade</label
-        >
+        <img src="activities/arcade.jpeg" alt="arcade" onclick="toggleCheckbox(this)" />
+        <label><input type="checkbox" name="activities" value="arcade" />arcade</label>
       </div>
       <div class="activity-item">
-        <img src="activities/pool.jpeg" alt="pool" />
-        <label
-          ><input
-            type="checkbox"
-            name="activities"
-            value="pool"
-          />Pool</label
-        >
+        <img src="activities/pool.jpeg" alt="pool" onclick="toggleCheckbox(this)" />
+        <label><input type="checkbox" name="activities" value="pool" />Pool</label>
       </div>
       <div class="activity-item">
-        <img src="activities/walk.jpg" alt="walk" />
-        <label
-          ><input
-            type="checkbox"
-            name="activities"
-            value="walk"
-          />Simply Walk</label
-        >
+        <img src="activities/walk.jpg" alt="walk" onclick="toggleCheckbox(this)" />
+        <label><input type="checkbox" name="activities" value="walk" />Simply Walk</label>
       </div>
       <div class="activity-item">
-        <img src="activities/park.jpeg" alt="park.jpeg" />
-        <label
-          ><input
-            type="checkbox"
-            name="activities"
-            value="park.jpeg"
-          />park</label
-        >
+        <img src="activities/park.jpeg" alt="park" onclick="toggleCheckbox(this)" />
+        <label><input type="checkbox" name="activities" value="park" />park</label>
       </div>
     </div>
     <button class="button" onclick="location.href='lastpage.html'">
-      Last page ... 
+      Last page ...
     </button>
+
+    <script>
+      function toggleCheckbox(imgElement) {
+        const checkbox = imgElement.nextElementSibling.querySelector('input[type="checkbox"]');
+        checkbox.checked = !checkbox.checked;
+      }
+    </script>
   </body>
 </html>

@@ -14,50 +14,63 @@
 
     <div class="food-selection">
       <div class="food-item">
-        <img src="food/burger.jpg" alt="Burgers" />
-        <label>
-          <input type="checkbox" name="food" value="Burgers " />
-          Burgers!?
-        </label>
+        <img src="food/burger.jpg" alt="Burgers" onclick="toggleCheckbox(this)" />
+        <label><input type="checkbox" name="food" value="Burgers" /> Burgers!? </label>
       </div>
       <div class="food-item">
-        <img src="food/pasta.jpeg" alt="pasta" />
+        <img src="food/pasta.jpeg" alt="pasta" onclick="toggleCheckbox(this)" />
         <label><input type="checkbox" name="food" value="pasta" /> Pasta</label>
       </div>
       <div class="food-item">
-        <img src="food/pizza.jpeg" alt="pizza" />
+        <img src="food/pizza.jpeg" alt="pizza" onclick="toggleCheckbox(this)" />
         <label><input type="checkbox" name="food" value="pizza" /> Pizza</label>
       </div>
       <div class="food-item">
-        <img src="food/chat.jpg" alt="chaat" />
+        <img src="food/chat.jpg" alt="chaat" onclick="toggleCheckbox(this)" />
         <label><input type="checkbox" name="food" value="chaat" /> Chaat</label>
       </div>
       <div class="food-item">
-        <img src="food/panipuri.jpeg" alt="panipuri" />
-        <label
-          ><input type="checkbox" name="food" value="panipuri" />
-          Panipuri</label
-        >
+        <img src="food/panipuri.jpeg" alt="panipuri" onclick="toggleCheckbox(this)" />
+        <label><input type="checkbox" name="food" value="panipuri" /> Panipuri</label>
       </div>
       <div class="food-item">
-        <img src="food/dumplings.jpeg" alt="momos" />
+        <img src="food/dumplings.jpeg" alt="momos" onclick="toggleCheckbox(this)" />
         <label><input type="checkbox" name="food" value="momos" /> Momos</label>
       </div>
+      <div class="food-item">
+        <img src="food/samosa.jpeg" alt="samosa" onclick="toggleCheckbox(this)" />
+        <label><input type="checkbox" name="food" value="samosa" /> Samosa</label>
+      </div>
+      <div class="food-item">
+        <img src="food/chole.jpeg" alt="chole" onclick="toggleCheckbox(this)" />
+        <label><input type="checkbox" name="food" value="chole" /> Chhole Bhature</label>
+      </div>
+      <div class="food-item">
+        <img src="food/theple.jpg" alt="theple" onclick="toggleCheckbox(this)" />
+        <label><input type="checkbox" name="food" value="theple" /> Theple</label>
+      </div>
+
     </div>
     <button class="button" onclick="location.href='dessert.html'">
       Continue Hihihhh...
     </button>
+
+    <script>
+      function toggleCheckbox(imgElement) {
+        const checkbox = imgElement.nextElementSibling.querySelector('input[type="checkbox"]');
+        checkbox.checked = !checkbox.checked;
+      }
+
+      const foodInputs = document.querySelectorAll("input[name='food']");
+      const button = document.querySelector(".button");
+      button.addEventListener("click", () => {
+        const selectedFood = Array.from(foodInputs)
+          .filter((input) => input.checked)
+          .map((input) => input.value)
+          .join(", ");
+        localStorage.setItem("selectedFood", selectedFood || "None");
+        window.location.href = "dessert.html";
+      });
+    </script>
   </body>
-  <script>
-    const foodInputs = document.querySelectorAll("input[name='food']");
-    const button = document.querySelector(".button");
-    button.addEventListener("click", () => {
-      const selectedFood = Array.from(foodInputs)
-        .filter((input) => input.checked)
-        .map((input) => input.value)
-        .join(", ");
-      localStorage.setItem("selectedFood", selectedFood || "None");
-      window.location.href = "dessert.html";
-    });
-  </script>
 </html>

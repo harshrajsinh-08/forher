@@ -12,46 +12,42 @@
 
     <div class="dessert-selection">
       <div class="dessert-item">
-        <img src="food/smoothie.jpeg" alt="smoothie" />
-        <label
-          ><input type="checkbox" name="dessert" value="smoothie" />
-          smoothie</label
-        >
+        <img src="food/smoothie.jpeg" alt="smoothie" onclick="toggleCheckbox(this)" />
+        <label><input type="checkbox" name="dessert" value="smoothie" /> smoothie</label>
       </div>
       <div class="dessert-item">
-        <img src="food/coffee.jpeg" alt="Coffee" />
-        <label
-          ><input type="checkbox" name="dessert" value="coffee" /> coffee</label
-        >
+        <img src="food/coffee.jpeg" alt="Coffee" onclick="toggleCheckbox(this)" />
+        <label><input type="checkbox" name="dessert" value="coffee" /> coffee</label>
       </div>
       <div class="dessert-item">
-        <img src="food/milkshake.jpg" alt="milkshake" />
-        <label
-          ><input type="checkbox" name="dessert" value="milkshake" />
-          Milkshake</label
-        >
+        <img src="food/milkshake.jpg" alt="milkshake" onclick="toggleCheckbox(this)" />
+        <label><input type="checkbox" name="dessert" value="milkshake" /> Milkshake</label>
       </div>
       <div class="dessert-item">
-        <img src="food/waffle.jpeg" alt="Waffle" />
-        <label
-          ><input type="checkbox" name="dessert" value="waffle" /> Waffle
-        </label>
+        <img src="food/waffle.jpeg" alt="Waffle" onclick="toggleCheckbox(this)" />
+        <label><input type="checkbox" name="dessert" value="waffle" /> Waffle</label>
       </div>
     </div>
     <button class="button" onclick="location.href='activities.html'">
       Continue :>
     </button>
+
+    <script>
+      function toggleCheckbox(imgElement) {
+        const checkbox = imgElement.nextElementSibling.querySelector('input[type="checkbox"]');
+        checkbox.checked = !checkbox.checked;
+      }
+
+      const dessertInputs = document.querySelectorAll("input[name='dessert']");
+      const button = document.querySelector(".button");
+      button.addEventListener("click", () => {
+        const selectedDessert = Array.from(dessertInputs)
+          .filter((input) => input.checked)
+          .map((input) => input.value)
+          .join(", ");
+        localStorage.setItem("selectedDessert", selectedDessert || "None");
+        window.location.href = "activities.html";
+      });
+    </script>
   </body>
-  <script>
-    const dessertInputs = document.querySelectorAll("input[name='dessert']");
-    const button = document.querySelector(".button");
-    button.addEventListener("click", () => {
-      const selectedDessert = Array.from(dessertInputs)
-        .filter((input) => input.checked)
-        .map((input) => input.value)
-        .join(", ");
-      localStorage.setItem("selectedDessert", selectedDessert || "None");
-      window.location.href = "activities.html";
-    });
-  </script>
 </html>
