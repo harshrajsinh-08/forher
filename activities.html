@@ -8,37 +8,49 @@
   </head>
   <body>
     <iframe src="audio.html" style="display: none;" id="audio-frame"></iframe>
-    <div id="activityquestion"><b>What are we doing after?</b></div>
+    <div id="activityquestion"><b>What are we gonna do?</b></div>
     <div class="activities-selection">
       <div class="activity-item">
         <img src="activities/movie.jpg" alt="movie" onclick="toggleCheckbox(this)" />
-        <label><input type="checkbox" name="activities" value="movie" />Movie</label>
+        <label><input type="checkbox" name="activities" value="movie" /> Movie</label>
       </div>
       <div class="activity-item">
         <img src="activities/arcade.jpeg" alt="arcade" onclick="toggleCheckbox(this)" />
-        <label><input type="checkbox" name="activities" value="arcade" />arcade</label>
+        <label><input type="checkbox" name="activities" value="arcade" /> Arcade</label>
       </div>
       <div class="activity-item">
         <img src="activities/pool.jpeg" alt="pool" onclick="toggleCheckbox(this)" />
-        <label><input type="checkbox" name="activities" value="pool" />Pool</label>
+        <label><input type="checkbox" name="activities" value="pool" /> Pool</label>
       </div>
       <div class="activity-item">
         <img src="activities/walk.jpg" alt="walk" onclick="toggleCheckbox(this)" />
-        <label><input type="checkbox" name="activities" value="walk" />Simply Walk</label>
+        <label><input type="checkbox" name="activities" value="walk" /> Simply Walk</label>
       </div>
       <div class="activity-item">
         <img src="activities/park.jpeg" alt="park" onclick="toggleCheckbox(this)" />
-        <label><input type="checkbox" name="activities" value="park" />park</label>
+        <label><input type="checkbox" name="activities" value="park" /> Park</label>
+      </div>
+      <div class="activity-item">
+        <img src="activities/scooty.jpg" alt="scooty" onclick="toggleCheckbox(this)" />
+        <label><input type="checkbox" name="activities" value="Scooty Ride" /> Scooty Ride</label>
       </div>
     </div>
-    <button class="button" onclick="location.href='lastpage.html'">
-      Last page ...
-    </button>
+    <button class="button" onclick="saveActivitiesAndRedirect()">Last page ...</button>
 
     <script>
       function toggleCheckbox(imgElement) {
         const checkbox = imgElement.nextElementSibling.querySelector('input[type="checkbox"]');
         checkbox.checked = !checkbox.checked;
+      }
+
+      function saveActivitiesAndRedirect() {
+        const activitiesInputs = document.querySelectorAll("input[name='activities']");
+        const selectedActivities = Array.from(activitiesInputs)
+          .filter((input) => input.checked)
+          .map((input) => input.value)
+          .join(", ");
+        localStorage.setItem("selectedActivities", selectedActivities || "None");
+        window.location.href = "lastpage.html";
       }
     </script>
   </body>

@@ -9,7 +9,7 @@
   <body>
     <iframe src="audio.html" style="display: none;" id="audio-frame"></iframe>
     <style>
-      body{
+      body {
         overflow-y: auto;
       }
       .card {
@@ -82,6 +82,7 @@
         <p id="selectedDate">Date: Not selected</p>
         <p id="selectedFood">Food: None</p>
         <p id="selectedDessert">Dessert: None</p>
+        <p id="selectedActivities">Activities: None</p>
       </div>
     </div>
 
@@ -89,9 +90,12 @@
       const date = localStorage.getItem("selectedDate") || "Not selected";
       const food = localStorage.getItem("selectedFood") || "None";
       const dessert = localStorage.getItem("selectedDessert") || "None";
+      const activities = localStorage.getItem("selectedActivities") || "None";
+
       document.getElementById("selectedDate").innerText = `Date: ${date}`;
       document.getElementById("selectedFood").innerText = `Food: ${food}`;
       document.getElementById("selectedDessert").innerText = `Dessert: ${dessert}`;
+      document.getElementById("selectedActivities").innerText = `Activities: ${activities}`;
     </script>
   </body>
 </html>
